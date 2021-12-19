@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Card from '../components/Card';
 
 export default function Home() {
   return (
@@ -11,36 +12,32 @@ export default function Home() {
       <h1 className="text-3xl font-bold underline">Eisenhower matrix</h1>
       <div className="h-3/4">
         <div className="flex h-1/2">
-          <div className="w-1/2 h-auto flex flex-col justify-center items-center shadow-xl rounded-xl m-3 p-5 bg-[#00D08A40]">
-            <h3 className="text-2xl font-bold opacity-30">Do</h3>
-            <p className="opacity-30">
-              Tasks with clear deadlines and significant consequences if not
-              completed in a timely fashion.
-            </p>
-          </div>
-          <div className="w-1/2 h-auto flex flex-col justify-center items-center shadow-xl rounded-xl m-3 p-5 bg-[#EAC31C40]">
-            <h3 className="text-2xl font-bold opacity-30">Schedule</h3>
-            <p className="opacity-30">
-              Tasks with no set deadline but that bring you closer to your long
-              term goals.
-            </p>
-          </div>
+          <Card
+            title="Do"
+            text=" Tasks with clear deadlines and significant consequences if not completed
+        in a timely fashion."
+            color="#00D08A"
+          />
+          <Card
+            title="Schedule"
+            text="Tasks with no set deadline but that bring you closer to your long
+              term goals."
+            color="#EAC31C"
+          />
         </div>
         <div className="flex h-1/2 mt-4">
-          <div className="w-1/2 h-auto flex flex-col justify-center items-center shadow-xl rounded-xl m-3 p-5 bg-[#008AA240]">
-            <h3 className="text-2xl font-bold opacity-30">Delegate</h3>
-            <p className="opacity-30">
-              Tasks that need to get done, but don&apos;t need your expertise in
-              order to be completed.
-            </p>
-          </div>
-          <div className="w-1/2 h-auto flex flex-col justify-center items-center shadow-xl rounded-xl m-3 p-5 bg-[#D02C0040]">
-            <h3 className="text-2xl font-bold opacity-30">Delete</h3>
-            <p className="opacity-30">
-              Tasks that distract you from your preferred course, and don&apos;t
-              add any measurable value.
-            </p>
-          </div>
+          <Card
+            title="Delegate"
+            text="Tasks that need to get done, but don't need your expertise in
+            order to be completed."
+            color="#008AA2"
+          />
+          <Card
+            title="Delete"
+            text=" Tasks that distract you from your preferred course, and don't
+            add any measurable value."
+            color="#D02C00"
+          />
         </div>
       </div>
     </div>
