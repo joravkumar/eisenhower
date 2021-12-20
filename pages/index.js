@@ -2,6 +2,34 @@ import Head from 'next/head';
 import Card from '../components/Card';
 
 export default function Home() {
+  const tasks = {
+    do: [
+      {
+        task: 'Pay bills',
+        isCompleted: false,
+      },
+    ],
+    schedule: [],
+    delegate: [],
+    delete: [],
+  };
+  const descriptions = {
+    do: 'Tasks with clear deadlines and significant consequences if not completed in a timely fashion.',
+    schedule:
+      'Tasks with no set deadline but that bring you closer to your long term goals.',
+    delegate:
+      "Tasks that need to get done, but don't need your expertise in order to be completed.",
+    delete:
+      "Tasks that distract you from your preferred course, and don't add any measurable value.",
+  };
+
+  const addTask = (type, task) => {
+    tasks[type].push({
+      task,
+      isCompleted: false,
+    });
+  };
+
   return (
     <div className="container mx-auto h-screen bg-slate-50">
       <Head>
@@ -10,15 +38,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1 className="text-3xl font-bold underline">Eisenhower matrix</h1>
-      <div className="h-3/4">
-        <div className="flex h-1/2">
-          <Card
-            title="Do"
-            text=" Tasks with clear deadlines and significant consequences if not completed
-        in a timely fashion."
-            color="#00D08A"
-          />
-          <Card
+      <div className="h-3/4 grid grid-cols-2">
+        {/* <div className="flex h-1/2"> */}
+        {Object.keys(tasks).map((taskKey) => {
+          return (
+            <Card
+              key={taskKey}
+              title={taskKey}
+              text={descriptions[taskKey]}
+              tasks={tasks[taskKey]}
+              addTask={addTask}
+            />
+          );
+        })}
+        {/* <Card
             title="Schedule"
             text="Tasks with no set deadline but that bring you closer to your long
               term goals."
@@ -37,8 +70,8 @@ export default function Home() {
             text=" Tasks that distract you from your preferred course, and don't
             add any measurable value."
             color="#D02C00"
-          />
-        </div>
+          /> */}
+        {/* </div> */}
       </div>
     </div>
   );
